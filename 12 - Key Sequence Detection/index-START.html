@@ -7,6 +7,22 @@
     <link rel="icon" href="https://fav.farm/🔥" />
   </head>
   <body>
-    <script></script>
+    <script>
+      const pressedArray = [];
+      const secretCode = 'vanilla';
+
+      window.addEventListener('keyup', (e) => {
+        console.log(e.key);
+        pressedArray.push(e.key);
+        pressedArray.splice(-secretCode.length-1, pressedArray.length - secretCode.length);
+
+        if (pressedArray.join('') === secretCode) {
+          console.log ('Winner!');
+          cornify_add();
+        }
+
+        console.log(pressedArray);
+      });
+    </script>
   </body>
 </html>
