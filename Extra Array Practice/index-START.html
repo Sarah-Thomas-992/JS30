@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Cardio 💪</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <script>
+
+function newList(arr1, arr2) {
+  const newArray = [...arr1, ...arr2].sort((a, b) => a-b);
+  console.log(newArray);
+}
+
+const array1 = [1, 1, 4, 6, 6, 8, 8, 9, 99, 99, 9];
+const array2 = [2, 5, 7, 10, 9];
+
+function thirdSort(array){
+  const noDuplicates = [...new Set(array)];
+  const sortedArray = noDuplicates.sort((a,b) => b - a);
+  return sortedArray[2];
+}
+
+  </script>
+</body>
+</html>
