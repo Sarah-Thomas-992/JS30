@@ -6,5 +6,42 @@ const snap = document.querySelector('.snap');
 
 function getVideo(){
     navigator.mediaDevices.getUserMedia({video:true, audio:false})
-        .then(localMediaStream => {})
+        .then(localMediaStream => {
+            console.log(localMediaStream);
+            video.src = window.URL.createObjectURL(localMediaStream);
+            video.play();
+        })
+        .catch(err => {
+            console.error(`OH NOOO`, err);
+        })
+};
+
+function paintToCanvas(){
+    const width = video.videoWidth;
+    const height = video.videoHeight;
+    canvas.width = width;
+    canvas.height = height;
+
+    return setInterval(() => {
+        ctx.drawImage(video, 0, 0, width, height);
+    }, 16);
+
 }
+
+function takePhoto(){
+    //Play the sound
+    snap.currentTime = 0;
+    snap.play();
+
+    //Get the data
+    const data = canvas.toDataURL('image/jpeg');
+    const link = document.createElement('a');
+    link.href = data;
+    link.setAttribute('download', 'handsome');
+    link.textContent = 'Download Image';
+    strip.insertBefore(link, stri[])
+}
+
+getVideo();
+
+video.addEventListener('canplay', paintToCanvas);
