@@ -25,6 +25,7 @@ body {
   transition: transform 0.5s;
 }
 
+
 body.fixed-nav .site-wrap {
   transform: scale(1);
 }
@@ -74,7 +75,7 @@ nav li {
   align-items: center;
 }
 
-li.logo {
+li .logo {
   max-width: 0;
   overflow: hidden;
   background: white;
@@ -83,11 +84,11 @@ li.logo {
   font-size: 30px;
 }
 
-li.logo a {
+li .logo a {
   color: black;
 }
 
-.fixed-nav li.logo {
+.fixed-nav li .logo {
   max-width: 500px;
 }
 
