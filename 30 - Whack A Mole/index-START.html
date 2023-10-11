@@ -71,8 +71,18 @@
     }, time);
   }
 
-  function score(){
-    scoreBoard.innerText = scoreboard.innerText + 1; 
+  function score(e){
+    if(!e.isTrusted) return;
+    
+    scoreBoard.innerText = parseInt(scoreBoard.innerText) + 1; 
+    this.classList.remove('up');
+  }
+  
+  function startGame(){
+    scoreBoard.innerText = 0;
+    timeUp = false;
+    peep();
+    setTimeout(() => timeUp = true, 10000);
   }
 
   moles.forEach(mole => mole.addEventListener('click', score));
